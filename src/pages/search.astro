@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageDoc } from '../lib/content';
+
+const doc = pageDoc('search');
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { homeDoc } from '../lib/content';
+
+// The /atlas/ demo-picker splash page.
+const doc = homeDoc('splash');
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

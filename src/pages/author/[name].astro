@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageDoc, pages } from '../../lib/content';
+
+export function getStaticPaths() {
+  // the demo ships a single author archive (admin)
+  return Object.keys(pages).includes('author') ? [{ params: { name: 'admin' } }] : [];
+}
+
+const doc = pageDoc('author');
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

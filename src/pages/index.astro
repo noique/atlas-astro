@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { homeDoc } from '../lib/content';
+import { site } from '../config/site';
+
+// `/` renders the variant chosen in src/config/site.ts (Blogar-style switch).
+const doc = homeDoc(site.homeVariant);
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

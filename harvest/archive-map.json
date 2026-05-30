@@ -1,0 +1,19 @@
+{
+ "categories": {
+  "gadget": "/atlas/default/category/gadget/",
+  "living": "/atlas/default/category/living/",
+  "style": "/atlas/default/category/style/",
+  "food": "/atlas/default/category/food/",
+  "drinks": "/atlas/four/category/drinks/",
+  "soup": "/atlas/four/category/soup/",
+  "dessert": "/atlas/four/category/dessert/",
+  "tech": "/atlas/six/category/tech/",
+  "news": "/atlas/six/category/news/",
+  "fashion": "/atlas/seven/category/fashion/",
+  "travel": "/atlas/seven/category/travel/",
+  "sports": "/atlas/seven/category/sports/"
+ },
+ "authors": {
+  "admin": "/atlas/default/author/admin/"
+ }
+}

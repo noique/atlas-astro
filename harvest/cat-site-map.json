@@ -1,0 +1,14 @@
+{
+ "gadget": "default",
+ "living": "default",
+ "style": "default",
+ "food": "default",
+ "drinks": "four",
+ "soup": "four",
+ "dessert": "four",
+ "tech": "six",
+ "news": "six",
+ "fashion": "seven",
+ "travel": "seven",
+ "sports": "seven"
+}

@@ -1,0 +1,49 @@
+---
+// Self-hosted Poppins (replaces the demo's Google-Fonts link). Weights match the theme tokens.
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/poppins/900.css';
+import '@fontsource/poppins/400-italic.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+  css: string; // /public/css/{css}.css
+  js?: string; // /public/js/{js}.js
+  dir?: string; // 'ltr' | 'rtl'
+  header: string;
+  footer: string;
+  tail: string;
+  main?: string;
+}
+const { title, description = '', bodyClass = '', css, js, dir = 'ltr', header, footer, tail } = Astro.props;
+const FAVICON = '/atlas/default/wp-content/uploads/sites/2/2023/11/cropped-layer-32x32.png';
+---
+
+<!doctype html>
+<html lang="en" dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="stylesheet" href={`/css/${css}.css`} />
+    <link rel="icon" href={FAVICON} sizes="32x32" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class={bodyClass}>
+    <div id="page" class="site">
+      <h1 class="screen-reader-text">{title}</h1>
+      <Fragment set:html={header} />
+      <slot />
+      <Fragment set:html={footer} />
+    </div>
+    <Fragment set:html={tail} />
+    {js && <script src={`/js/${js}.js`} is:inline></script>}
+  </body>
+</html>

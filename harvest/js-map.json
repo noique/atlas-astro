@@ -1,0 +1,17 @@
+{
+ "splash": "splash.js",
+ "home-default": "home-default.js",
+ "home-two": "home-two.js",
+ "home-three": "home-three.js",
+ "home-four": "home-four.js",
+ "home-five": "home-five.js",
+ "home-six": "home-six.js",
+ "home-seven": "home-seven.js",
+ "home-eight": "home-eight.js",
+ "home-ads": "home-ads.js",
+ "home-rtl": "home-rtl.js",
+ "single": "single.js",
+ "archive": "archive.js",
+ "contact": "contact.js",
+ "search": "search.js"
+}

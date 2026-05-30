@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { homeDoc, homes } from '../../lib/content';
+
+export function getStaticPaths() {
+  return Object.keys(homes)
+    .filter((v) => v !== 'splash')
+    .map((variant) => ({ params: { variant } }));
+}
+
+const { variant } = Astro.params;
+const doc = homeDoc(variant!);
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

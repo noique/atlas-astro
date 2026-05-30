@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { tagDoc, tags } from '../../lib/content';
+
+export function getStaticPaths() {
+  return Object.keys(tags).map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const doc = tagDoc(tag!);
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

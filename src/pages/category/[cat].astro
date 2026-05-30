@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { catDoc, categories } from '../../lib/content';
+
+export function getStaticPaths() {
+  return Object.keys(categories).map((cat) => ({ params: { cat } }));
+}
+
+const { cat } = Astro.params;
+const doc = catDoc(cat!);
+---
+
+<Layout {...doc}>
+  <Fragment set:html={doc.main} />
+</Layout>

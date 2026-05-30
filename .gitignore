@@ -1,0 +1,26 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# raw captures from the live demo (bulky, re-fetchable). Keep the pipeline scripts + small maps
+# (harvest/*.mjs, harvest/*.json) so the build is reproducible; ignore the staged HTML/CSS/JS/fonts.
+harvest/html/
+harvest/css/
+harvest/js/
+harvest/fonts/
+harvest/theme/
+harvest/*.log
+harvest/parts/
+
+# os / editor
+.DS_Store
+*.log
+.vscode/
+
+# env
+.env
+.env.*
+!.env.example
