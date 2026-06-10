@@ -63,7 +63,10 @@ function fixSocial(html) {
 }
 // Drop stray <link rel="preconnect"/"dns-prefetch"> a few widgets inject into the body — fonts are self-hosted.
 const stripStray = (s) => s.replace(/<link\b[^>]*\brel="(?:preconnect|dns-prefetch)"[^>]*>/gi, '');
-const clean = (s) => fixSocial(stripStray(stripCommerce(stripScripts(cleanFragment(s || '')))));
+// Remove the infinite-load trigger: an empty <div id="single-point-ajax"> after the article that the theme JS
+// watches to fetch the next post via admin-ajax.php. No backend here → it would spin forever.
+const stripInfinite = (s) => s.replace(/<div\b[^>]*single-point-ajax[^>]*>\s*<\/div>/gi, '');
+const clean = (s) => fixSocial(stripInfinite(stripStray(stripCommerce(stripScripts(cleanFragment(s || ''))))));
 const decode = (s) => String(s).replace(/&#0?38;|&amp;/g, '&').replace(/&#8217;|&#x2019;|&#8216;/g, '’').replace(/&#8211;|&#8212;/g, '–').replace(/&#8230;/g, '…').replace(/&quot;|&#34;/g, '"').replace(/&#039;|&#39;/g, "'").replace(/&nbsp;/g, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const meta = (h, re) => { const m = h.match(re); return m ? m[1].trim() : ''; };
 
